@@ -29,6 +29,7 @@ public class Intervention extends BaseEntity {
 
     public Intervention(Mechanic mechanic, WorkOrder workOrder) {
 	super();
+	this.date = new Date();
 	Associations.Intervene.link(workOrder, this, mechanic);
     }
 
