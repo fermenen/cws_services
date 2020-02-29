@@ -2,6 +2,10 @@ package uo.ri.cws.domain;
 
 import javax.persistence.Embeddable;
 
+/**
+ * Clase Dirección
+ *
+ */
 @Embeddable
 public class Address {
     private String street;
