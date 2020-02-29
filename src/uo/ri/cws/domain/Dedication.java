@@ -18,7 +18,7 @@ public class Dedication extends BaseEntity {
 	@ManyToOne
 	private VehicleType vehicleType;
 
-	public Dedication() {
+	protected Dedication() {
 	}
 
 	protected Dedication(int percentage, VehicleType vehicleType) {
