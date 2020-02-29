@@ -23,7 +23,7 @@ public class Certificate extends BaseEntity {
     @ManyToOne
     private VehicleType vehicletype;
 
-    Certificate() {
+    public Certificate() {
     }
 
     public Certificate(Mechanic mechanic, VehicleType vehicleType) {

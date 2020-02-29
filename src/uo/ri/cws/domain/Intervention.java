@@ -115,8 +115,7 @@ public class Intervention extends BaseEntity {
     @Override
     public String toString() {
 	return "Intervention [workOrder=" + workOrder + ", mechanic=" + mechanic
-		+ ", date=" + date + ", minutes=" + minutes + ", sustituciones="
-		+ sustituciones + "]";
+		+ ", date=" + date + ", minutes=" + minutes + "]";
     }
 
 }

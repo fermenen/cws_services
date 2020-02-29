@@ -12,7 +12,7 @@ public class Address {
     private String city;
     private String zipCode;
 
-    Address() {
+    public Address() {
     }
 
     public Address(String street, String city, String zipCode) {
