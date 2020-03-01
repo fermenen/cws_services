@@ -21,6 +21,7 @@ import uo.ri.cws.application.service.vehicletype.VehicleTypeCrudService;
 import uo.ri.cws.application.service.workorder.CloseWorkOrderService;
 import uo.ri.cws.application.service.workorder.ViewAssignedWorkOrdersService;
 import uo.ri.cws.application.service.workorder.WorkOrderCrudService;
+import uo.ri.cws.application.service.workorder.crud.WorkOrderCrudServiceImpl;
 
 public class BusinessFactory implements ServiceFactory {
 
@@ -102,7 +103,7 @@ public class BusinessFactory implements ServiceFactory {
 
     @Override
     public WorkOrderCrudService forWorkOrderService() {
-	throw new RuntimeException("Not yet implemented");
+	return new WorkOrderCrudServiceImpl();
     }
 
     @Override
