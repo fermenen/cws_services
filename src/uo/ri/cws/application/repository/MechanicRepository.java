@@ -7,14 +7,14 @@ import uo.ri.cws.domain.Mechanic;
 
 public interface MechanicRepository extends Repository<Mechanic> {
 
-	/**
-	 * @param dni
-	 * @return the mechanic identified by the dni or null if none
-	 */
-	Optional<Mechanic> findByDni(String dni);
+    /**
+     * @param dni
+     * @return the mechanic identified by the dni or null if none
+     */
+    Optional<Mechanic> findByDni(String dni);
 
-	/**
-	 * @return a list with all mechanics (might be empty)
-	 */
-	List<Mechanic> findAll();
+    /**
+     * @return a list with all mechanics (might be empty)
+     */
+    List<Mechanic> findAll();
 }

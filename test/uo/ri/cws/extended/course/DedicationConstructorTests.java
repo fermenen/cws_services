@@ -11,19 +11,19 @@ import uo.ri.cws.domain.Dedication;
 
 public class DedicationConstructorTests {
 
-	/**
-	 * Dedication constructors must have package visibility
-	 * 
-	 * Dedication objects are only constructed from Course objects. 
-	 * Course forms an aggregate of Dedication(s).
-	 */
-	@Test
-	public void testDedicationConstructorPackageVisible() {
-		Constructor<?>[] cons = Dedication.class.getConstructors();
-		for(Constructor<?> c: cons) {
-			int modifiers = c.getModifiers();
-			assertFalse( Modifier.isPublic(modifiers) ); 
-		}
+    /**
+     * Dedication constructors must have package visibility
+     * 
+     * Dedication objects are only constructed from Course objects. Course forms
+     * an aggregate of Dedication(s).
+     */
+    @Test
+    public void testDedicationConstructorPackageVisible() {
+	Constructor<?>[] cons = Dedication.class.getConstructors();
+	for (Constructor<?> c : cons) {
+	    int modifiers = c.getModifiers();
+	    assertFalse(Modifier.isPublic(modifiers));
 	}
+    }
 
 }

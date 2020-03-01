@@ -8,16 +8,16 @@ import uo.ri.cws.application.util.command.Command;
 
 public class CreateInvoiceFor implements Command<InvoiceDto> {
 
-	private List<String> workOrderIds;
+    private List<String> workOrderIds;
 
-	public CreateInvoiceFor(List<String> workOrderIds) {
-		this.workOrderIds = workOrderIds;
-	}
+    public CreateInvoiceFor(List<String> workOrderIds) {
+	this.workOrderIds = workOrderIds;
+    }
 
-	@Override
-	public InvoiceDto execute() throws BusinessException {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    @Override
+    public InvoiceDto execute() throws BusinessException {
+	// TODO Auto-generated method stub
+	return null;
+    }
 
 }

@@ -8,52 +8,52 @@ import javax.persistence.*;
 @Table(name = "TCASHES")
 public class Cash extends PaymentMean {
 
-	public Cash() {
+    public Cash() {
 
-	}
+    }
 
-	public Cash(Client cliente) {
-		this();
-		Associations.Pay.link(this, cliente);
-	}
+    public Cash(Client cliente) {
+	this();
+	Associations.Pay.link(this, cliente);
+    }
 
-	public double getAccumulated() {
+    public double getAccumulated() {
 
-		return super.getAcumulado();
-	}
+	return super.getAcumulado();
+    }
 
-	protected Set<Charge> _getCharges() {
-		return super._getCharges();
-	}
+    protected Set<Charge> _getCharges() {
+	return super._getCharges();
+    }
 
-	@Override
-	public String toString() {
-		return "Metalico [toString()=" + super.toString() + "]";
-	}
+    @Override
+    public String toString() {
+	return "Metalico [toString()=" + super.toString() + "]";
+    }
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((client == null) ? 0 : client.hashCode());
-		return result;
-	}
+    @Override
+    public int hashCode() {
+	final int prime = 31;
+	int result = 1;
+	result = prime * result + ((client == null) ? 0 : client.hashCode());
+	return result;
+    }
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		PaymentMean other = (PaymentMean) obj;
-		if (client == null) {
-			if (other.client != null)
-				return false;
-		} else if (!client.equals(other.client))
-			return false;
-		return true;
-	}
+    @Override
+    public boolean equals(Object obj) {
+	if (this == obj)
+	    return true;
+	if (obj == null)
+	    return false;
+	if (getClass() != obj.getClass())
+	    return false;
+	PaymentMean other = (PaymentMean) obj;
+	if (client == null) {
+	    if (other.client != null)
+		return false;
+	} else if (!client.equals(other.client))
+	    return false;
+	return true;
+    }
 
 }

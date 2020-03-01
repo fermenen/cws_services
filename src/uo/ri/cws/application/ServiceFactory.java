@@ -20,26 +20,37 @@ public interface ServiceFactory {
 
     // Manager use cases
     VehicleTypeCrudService forVehicleTypeCrudService();
+
     MechanicCrudService forMechanicCrudService();
+
     SparePartCrudService forSparePartCrudService();
+
     CourseCrudService forCourseCrudService();
+
     CourseAttendanceService forCourseAttendanceService();
+
     CourseReportService forCourseReportService();
+
     CertificateService forCertificateService();
 
     // Cash use cases
     CreateInvoiceService forCreateInvoiceService();
+
     SettleInvoiceService forSettleInvoiceService();
 
     // Foreman use cases
     WorkOrderCrudService forWorkOrderService();
-    //AssignWorkOrderService forAssignWorkOrderService();
+
+    // AssignWorkOrderService forAssignWorkOrderService();
     VehicleCrudService forVehicleCrudService();
+
     ClientCrudService forClientCrudService();
+
     ClientHistoryService forClientHistoryService();
 
     // Mechanic use cases
     CloseWorkOrderService forClosingBreakdown();
+
     ViewAssignedWorkOrdersService forViewAssignedWorkOrdersService();
 
 }

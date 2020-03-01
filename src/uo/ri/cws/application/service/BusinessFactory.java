@@ -9,6 +9,11 @@ import uo.ri.cws.application.service.invoice.create.CreateInvoiceServiceImpl;
 import uo.ri.cws.application.service.mechanic.MechanicCrudService;
 import uo.ri.cws.application.service.mechanic.crud.MechanicCrudServiceImpl;
 import uo.ri.cws.application.service.sparepart.SparePartCrudService;
+import uo.ri.cws.application.service.training.CertificateService;
+import uo.ri.cws.application.service.training.CourseAttendanceService;
+import uo.ri.cws.application.service.training.CourseCrudService;
+import uo.ri.cws.application.service.training.CourseReportService;
+import uo.ri.cws.application.service.training.crud.CourseAttendanceServiceImpl;
 import uo.ri.cws.application.service.vehicle.VehicleCrudService;
 import uo.ri.cws.application.service.vehicle.crud.VehicleCrudServiceImpl;
 import uo.ri.cws.application.service.vehicletype.VehicleTypeCrudService;
@@ -18,59 +23,95 @@ import uo.ri.cws.application.service.workorder.WorkOrderCrudService;
 
 public class BusinessFactory implements ServiceFactory {
 
-	@Override
-	public MechanicCrudService forMechanicCrudService() {
-		return new MechanicCrudServiceImpl();
-	}
+    @Override
+    public MechanicCrudService forMechanicCrudService() {
+	return new MechanicCrudServiceImpl();
+    }
 
-	@Override
-	public CreateInvoiceService forCreateInvoiceService() {
-		return new CreateInvoiceServiceImpl();
-	}
+    @Override
+    public CreateInvoiceService forCreateInvoiceService() {
+	return new CreateInvoiceServiceImpl();
+    }
 
-	@Override
-	public VehicleCrudService forVehicleCrudService() {
-		return new VehicleCrudServiceImpl();
-	}
+    @Override
+    public VehicleCrudService forVehicleCrudService() {
+	return new VehicleCrudServiceImpl();
+    }
 
-	@Override
-	public CloseWorkOrderService forClosingBreakdown() {
-		throw new RuntimeException("Not yet implemented");
-	}
+    @Override
+    public CloseWorkOrderService forClosingBreakdown() {
+	throw new RuntimeException("Not yet implemented");
+    }
 
-	@Override
-	public VehicleTypeCrudService forVehicleTypeCrudService() {
-		throw new RuntimeException("Not yet implemented");
-	}
+    @Override
+    public VehicleTypeCrudService forVehicleTypeCrudService() {
+	throw new RuntimeException("Not yet implemented");
+    }
 
-	@Override
-	public SparePartCrudService forSparePartCrudService() {
-		throw new RuntimeException("Not yet implemented");
-	}
+    @Override
+    public SparePartCrudService forSparePartCrudService() {
+	throw new RuntimeException("Not yet implemented");
+    }
 
-	@Override
-	public SettleInvoiceService forSettleInvoiceService() {
-		throw new RuntimeException("Not yet implemented");
-	}
+    @Override
+    public SettleInvoiceService forSettleInvoiceService() {
+	throw new RuntimeException("Not yet implemented");
+    }
 
-	@Override
-	public ClientCrudService forClienteCrudService() {
-		throw new RuntimeException("Not yet implemented");
-	}
+    @Override
+    public ClientCrudService forClienteCrudService() {
+	throw new RuntimeException("Not yet implemented");
+    }
 
-	@Override
-	public ClientHistoryService forClientHistoryService() {
-		throw new RuntimeException("Not yet implemented");
-	}
+    @Override
+    public ClientHistoryService forClientHistoryService() {
+	throw new RuntimeException("Not yet implemented");
+    }
 
-	@Override
-	public WorkOrderCrudService forWorkOrderCrudService() {
-		throw new RuntimeException("Not yet implemented");
-	}
+    @Override
+    public WorkOrderCrudService forWorkOrderCrudService() {
+	throw new RuntimeException("Not yet implemented");
+    }
 
-	@Override
-	public ViewAssignedWorkOrdersService forViewAssignedWorkOrdersService() {
-		throw new RuntimeException("Not yet implemented");
-	}
+    @Override
+    public ViewAssignedWorkOrdersService forViewAssignedWorkOrdersService() {
+	throw new RuntimeException("Not yet implemented");
+    }
+
+    @Override
+    public CourseCrudService forCourseCrudService() {
+	// TODO Auto-generated method stub
+	return null;
+    }
+
+    @Override
+    public CourseAttendanceService forCourseAttendanceService() {
+	return new CourseAttendanceServiceImpl();
+
+    }
+
+    @Override
+    public CourseReportService forCourseReportService() {
+	// TODO Auto-generated method stub
+	return null;
+    }
+
+    @Override
+    public CertificateService forCertificateService() {
+	// TODO Auto-generated method stub
+	return null;
+    }
+
+    @Override
+    public WorkOrderCrudService forWorkOrderService() {
+	// TODO Auto-generated method stub
+	return null;
+    }
+
+    @Override
+    public ClientCrudService forClientCrudService() {
+	// TODO Auto-generated method stub
+	return null;
+    }
 
 }

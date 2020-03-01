@@ -7,9 +7,9 @@ import uo.ri.cws.application.util.command.Command;
 
 public class FindAllMechanics {
 
-	public List<MechanicDto> execute() {
-		
-		return null;
-	}
+    public List<MechanicDto> execute() {
+
+	return null;
+    }
 
 }

@@ -5,15 +5,15 @@ import uo.ri.cws.application.service.mechanic.MechanicDto;
 
 public class AddMechanic {
 
-	private MechanicDto dto;
+    private MechanicDto dto;
 
-	public AddMechanic(MechanicDto mecanico) {
-		this.dto = mecanico;
-	}
+    public AddMechanic(MechanicDto mecanico) {
+	this.dto = mecanico;
+    }
 
-	public MechanicDto execute() throws BusinessException {
+    public MechanicDto execute() throws BusinessException {
 
-		return dto;
-	}
+	return dto;
+    }
 
 }
