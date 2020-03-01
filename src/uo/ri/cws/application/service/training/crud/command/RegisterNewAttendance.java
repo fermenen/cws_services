@@ -41,14 +41,14 @@ public class RegisterNewAttendance implements Command<EnrollmentDto> {
 
     private Course checkCourse(String courseId) throws BusinessException {
 	Optional<Course> c = repoC.findById(courseId);
-	BusinessCheck.isFalse(c.isEmpty(), "The course does not exist");
+	BusinessCheck.isTrue(c.isPresent(), "The course does not exist");
 	return c.get();
 
     }
 
     private Mechanic checkMechanic(String mechanicId) throws BusinessException {
 	Optional<Mechanic> m = repoM.findById(mechanicId);
-	BusinessCheck.isFalse(m.isEmpty(), "The mechanic does not exist");
+	BusinessCheck.isTrue(m.isPresent(), "The mechanic does not exist");
 	return m.get();
 
     }

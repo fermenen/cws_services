@@ -13,6 +13,7 @@ import uo.ri.cws.application.service.training.CertificateService;
 import uo.ri.cws.application.service.training.CourseAttendanceService;
 import uo.ri.cws.application.service.training.CourseCrudService;
 import uo.ri.cws.application.service.training.CourseReportService;
+import uo.ri.cws.application.service.training.crud.CertificateServiceImpl;
 import uo.ri.cws.application.service.training.crud.CourseAttendanceServiceImpl;
 import uo.ri.cws.application.service.vehicle.VehicleCrudService;
 import uo.ri.cws.application.service.vehicle.crud.VehicleCrudServiceImpl;
@@ -80,8 +81,7 @@ public class BusinessFactory implements ServiceFactory {
 
     @Override
     public CourseCrudService forCourseCrudService() {
-	// TODO Auto-generated method stub
-	return null;
+	throw new RuntimeException("Not yet implemented");
     }
 
     @Override
@@ -92,26 +92,22 @@ public class BusinessFactory implements ServiceFactory {
 
     @Override
     public CourseReportService forCourseReportService() {
-	// TODO Auto-generated method stub
-	return null;
+	throw new RuntimeException("Not yet implemented");
     }
 
     @Override
     public CertificateService forCertificateService() {
-	// TODO Auto-generated method stub
-	return null;
+	return new CertificateServiceImpl();
     }
 
     @Override
     public WorkOrderCrudService forWorkOrderService() {
-	// TODO Auto-generated method stub
-	return null;
+	throw new RuntimeException("Not yet implemented");
     }
 
     @Override
     public ClientCrudService forClientCrudService() {
-	// TODO Auto-generated method stub
-	return null;
+	throw new RuntimeException("Not yet implemented");
     }
 
 }

@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<entity-mappings 
-	xmlns="http://java.sun.com/xml/ns/persistence/orm" 
+<entity-mappings
+	xmlns="http://java.sun.com/xml/ns/persistence/orm"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
-  	version="2.0">
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_2_0.xsd"
+	version="2.0">
 
-	<!-- Vehicle queries --> 
+	<!-- Vehicle queries -->
 	<named-query name="Vehicle.findByPlate">
 		<query>select v from Vehicle v where v.plateNumber = ?1</query>
 	</named-query>
 
-	<!-- WorkOrder queries --> 
+	<!-- WorkOrder queries -->
 	<named-query name="WorkOrder.findByIds">
 		<query>select a from WorkOrder a where a.id in ?1</query>
 	</named-query>
@@ -26,7 +26,7 @@
 			where f.id = ?1
 		</query>
 	</named-query>
-	
+
 	<!-- Mechanic queries -->
 	<named-query name="Mechanic.findByDni">
 		<query>
@@ -40,26 +40,96 @@
 	<named-query name="Invoice.findByNumber">
 		<query>select f from Invoice f where f.number = ?1</query>
 	</named-query>
-	
+
 	<named-query name="Invoice.getNextInvoiceNumber">
 		<query>select max(f.number) + 1 from Invoice f</query>
 	</named-query>
-	
-<!-- 
-	Use this format if your query has 
-	numeric comparisons as the one in this example
-	
-	<named-query name="findItemsOnSaleByCategoryId">
+
+	<named-query name="Enrollment.findByCourseMechanic">
 		<query>
-			<![CDATA[
-			select i 
-				from Item i join i.categories c
-				where c.id = ?2
-					and i.startDate <= ?1
-					and i.endDate >= ?1 
-			]]>
+		select e 
+		from Enrollment e 
+		join e.course c
+		join e.mechanic m
+		where c.id = ?1 and m.id = ?2
 		</query>
 	</named-query>
- -->		
+
+	<named-query name="Enrollment.findByCourse">
+		<query>
+		select e 
+		from Enrollment e 
+		join e.course c
+		where c.id = ?1
+		</query>
+	</named-query>
+
+	<named-query name="Enrollment.findByMechanic">
+		<query>
+		select e 
+		from Enrollment e 
+		join e.mechanic m
+		where m.id = ?1
+		</query>
+	</named-query>
+
+	<named-query name="VehicleType.findByName">
+		<query>
+		select v
+		from VehicleType v
+		where v.name = ?1
+		</query>
+	</named-query>
+
+	<named-query name="Mechanic.calculateHoursCourseEnroll">
+		<query>
+		select SUM(c.hours)
+		from Mechanic m
+		join m.enrollments e
+		join e.course c
+		where m.id = ?1
+		</query>
+	</named-query>
+
+	<named-query name="Mechanic.calculateHoursCourseAssit">
+		<query>
+		select SUM((c.hours*e.attendance)/100)
+		from Mechanic m
+		join m.enrollments e
+		join e.course c
+		where m.id = ?1
+		</query>
+	</named-query>
+
+	<named-query name="Mechanic.calculateHoursCourseAssitType">
+		<query>
+		select SUM((((c.hours*d.percentage)/100)*e.attendance)/100)
+		from Mechanic m
+		join m.enrollments e
+		join e.course c
+		join c.dedications d
+		where m.id = ?1 and d.vehicleType.id = ?2
+		</query>
+	</named-query>
+	
+	<named-query name="Mechanic.calculateHoursCourseAssitTypePassed">
+		<query>
+		select SUM((((c.hours*d.percentage)/100)*e.attendance)/100)
+		from Mechanic m
+		join m.enrollments e
+		join e.course c
+		join c.dedications d
+		where m.id = ?1 
+		and d.vehicleType.id = ?2 
+		and e.passed = ?3
+		</query>
+	</named-query>
+
+
+
+	<!-- Use this format if your query has numeric comparisons as the one in this example 
+		<named-query name="findItemsOnSaleByCategoryId"> <query> <![CDATA[ select i from 
+		Item i join i.categories c where c.id = ?2 and i.startDate <= ?1 and i.endDate >= 
+		?1 ]]> </query> </named-query> -->
 
 </entity-mappings>

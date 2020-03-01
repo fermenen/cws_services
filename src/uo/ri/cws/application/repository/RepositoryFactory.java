@@ -21,6 +21,11 @@ public interface RepositoryFactory {
     VehicleTypeRepository forVehicleType();
 
     // Model Extension
+
     CourseRepository forCourse();
+
+    AttendanceRepository forAttendance();
+
+    CertificateRepository forCertificate();
 
 }
