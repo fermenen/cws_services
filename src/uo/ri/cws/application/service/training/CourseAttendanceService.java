@@ -52,6 +52,4 @@ public interface CourseAttendanceService {
     List<CourseDto> findAllActiveCourses() throws BusinessException;
 
     List<MechanicDto> findAllActiveMechanics() throws BusinessException;
-
-    TrainingDto listHoursTrainingMechanic(String id) throws BusinessException;
 }

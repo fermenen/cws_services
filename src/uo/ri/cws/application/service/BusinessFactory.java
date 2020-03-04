@@ -15,6 +15,7 @@ import uo.ri.cws.application.service.training.CourseCrudService;
 import uo.ri.cws.application.service.training.CourseReportService;
 import uo.ri.cws.application.service.training.crud.CertificateServiceImpl;
 import uo.ri.cws.application.service.training.crud.CourseAttendanceServiceImpl;
+import uo.ri.cws.application.service.training.crud.CourseReportServiceImpl;
 import uo.ri.cws.application.service.vehicle.VehicleCrudService;
 import uo.ri.cws.application.service.vehicle.crud.VehicleCrudServiceImpl;
 import uo.ri.cws.application.service.vehicletype.VehicleTypeCrudService;
@@ -93,7 +94,8 @@ public class BusinessFactory implements ServiceFactory {
 
     @Override
     public CourseReportService forCourseReportService() {
-	throw new RuntimeException("Not yet implemented");
+	return new CourseReportServiceImpl();
+
     }
 
     @Override
