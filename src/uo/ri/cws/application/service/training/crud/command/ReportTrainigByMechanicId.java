@@ -14,14 +14,14 @@ import uo.ri.cws.application.util.command.Command;
 import uo.ri.cws.domain.Mechanic;
 import uo.ri.cws.domain.VehicleType;
 
-public class ReportHoursTrainingMechanic
-implements Command<List<TrainingForMechanicRow>> {
+public class ReportTrainigByMechanicId
+	implements Command<List<TrainingForMechanicRow>> {
 
     private String mechanicId;
     private MechanicRepository repoMechanic = Factory.repository.forMechanic();
     private VehicleTypeRepository repoTV = Factory.repository.forVehicleType();
 
-    public ReportHoursTrainingMechanic(String mechanicId) {
+    public ReportTrainigByMechanicId(String mechanicId) {
 	this.mechanicId = mechanicId;
 
     }
@@ -34,6 +34,7 @@ implements Command<List<TrainingForMechanicRow>> {
 
     /**
      * Check if the mechanic exists in the system
+     * 
      * @param mechanicId
      * @return
      * @throws BusinessException
@@ -56,10 +57,14 @@ implements Command<List<TrainingForMechanicRow>> {
 	for (VehicleType typeVehicle : repoTV.findAll()) {
 	    TrainingForMechanicRow training = new TrainingForMechanicRow();
 	    training.vehicleTypeName = typeVehicle.getName();
-	    Object enrolledHours = repoMechanic.EnrolledHoursByType(mechanic.getId(), typeVehicle.getId());
-	    training.enrolledHours = ((enrolledHours == null) ? 0 : ((Long) enrolledHours).intValue());
-	    Object attendedHours = repoMechanic.AssistedHoursByType(mechanic.getId(), typeVehicle.getId());
-	    training.attendedHours = ((attendedHours == null) ? 0 : ((Long) attendedHours).intValue());
+	    Object enrolledHours = repoMechanic
+		    .EnrolledHoursByType(mechanic.getId(), typeVehicle.getId());
+	    training.enrolledHours = ((enrolledHours == null) ? 0
+		    : ((Long) enrolledHours).intValue());
+	    Object attendedHours = repoMechanic
+		    .AssistedHoursByType(mechanic.getId(), typeVehicle.getId());
+	    training.attendedHours = ((attendedHours == null) ? 0
+		    : ((Long) attendedHours).intValue());
 	    listTraining.add(training);
 	}
 	return listTraining;
