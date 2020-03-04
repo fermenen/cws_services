@@ -14,6 +14,14 @@ import uo.ri.cws.application.util.command.Command;
 import uo.ri.cws.domain.Mechanic;
 import uo.ri.cws.domain.VehicleType;
 
+/**
+ * The system will request the identification of the mechanic and then, it will
+ * show the total hours of courses in which he was enrolled, the total hours
+ * attended and a break down of those attended by each type of vehicle.
+ * 
+ * @version 2.0
+ *
+ */
 public class ReportTrainigByMechanicId
 	implements Command<List<TrainingForMechanicRow>> {
 
