@@ -8,6 +8,7 @@ import uo.ri.cws.application.repository.MechanicRepository;
 import uo.ri.cws.application.repository.VehicleTypeRepository;
 import uo.ri.cws.application.service.BusinessException;
 import uo.ri.cws.application.service.training.*;
+import uo.ri.cws.application.service.training.dto.TrainingDto;
 import uo.ri.cws.application.util.BusinessCheck;
 import uo.ri.cws.application.util.command.Command;
 import uo.ri.cws.domain.VehicleType;
