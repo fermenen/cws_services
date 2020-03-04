@@ -101,18 +101,34 @@
 		</query>
 	</named-query>
 
-	<named-query name="Mechanic.calculateHoursCourseAssitType">
+	<!-- REPORTS -->
+
+
+	<named-query name="Mechanic.CalculateEnrolledHoursByType">
+		<query>
+		select SUM(c.hours)
+		from Mechanic m
+		join m.enrollments e
+		join e.course c
+		join c.dedications d
+		where m.id = ?1 
+		and d.vehicleType.id = ?2
+		</query>
+	</named-query>
+
+	<named-query name="Mechanic.CalculateAssistedHoursByType">
 		<query>
 		select SUM((((c.hours*d.percentage)/100)*e.attendance)/100)
 		from Mechanic m
 		join m.enrollments e
 		join e.course c
 		join c.dedications d
-		where m.id = ?1 and d.vehicleType.id = ?2
+		where m.id = ?1 
+		and d.vehicleType.id = ?2
 		</query>
 	</named-query>
 	
-	<named-query name="Mechanic.calculateHoursCourseAssitTypePassed">
+	<named-query name="Mechanic.CalculateAssistedHoursByTypeAndPassed">
 		<query>
 		select SUM((((c.hours*d.percentage)/100)*e.attendance)/100)
 		from Mechanic m

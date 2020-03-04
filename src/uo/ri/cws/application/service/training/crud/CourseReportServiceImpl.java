@@ -7,7 +7,7 @@ import uo.ri.cws.application.service.BusinessException;
 import uo.ri.cws.application.service.training.CourseReportService;
 import uo.ri.cws.application.service.training.TrainingForMechanicRow;
 import uo.ri.cws.application.service.training.TrainingHoursRow;
-import uo.ri.cws.application.service.training.crud.command.ListHoursTrainingMechanic;
+import uo.ri.cws.application.service.training.crud.command.ReportHoursTrainingMechanic;
 import uo.ri.cws.application.service.training.dto.CertificateDto;
 import uo.ri.cws.application.util.command.CommandExecutor;
 
@@ -18,7 +18,7 @@ public class CourseReportServiceImpl implements CourseReportService {
     @Override
     public List<TrainingForMechanicRow> findTrainigByMechanicId(String id)
 	    throws BusinessException {
-	return executor.execute(new ListHoursTrainingMechanic(id));
+	return executor.execute(new ReportHoursTrainingMechanic(id));
 	
     }
         

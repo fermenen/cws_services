@@ -30,18 +30,27 @@ public interface MechanicRepository extends Repository<Mechanic> {
      */
     Long calcHoursCAssit(String id);
 
+    
     /**
      * @param idMecanico
      * @param idType
-     * @return horas totales asistidas por tipo de vehiculo
+     * @return Enrolled hours for vehicle type
      */
-    Long calcHoursCAssitType(String idMecanico, String idType);
+    Long EnrolledHoursByType(String idMechanic, String idType);
+    
+    
+    /**
+     * @param idMecanico
+     * @param idType
+     * @return Assisted hours for vehicle type
+     */
+    Long AssistedHoursByType(String idMechanic, String idType);
 
     /**
      * @param idMecanico
      * @param idType
-     * @return horas totales asistidas por tipo de vehiculo aprobado
+     * @return Assisted hours for vehicle type and passed
      */
-    Long calcHoursCAssitTypePassed(String idMecanico, String idType);
+    Long calcHoursCAssitTypePassed(String idMechanic, String idType);
 
 }

@@ -7,7 +7,7 @@ import uo.ri.cws.infrastructure.persistence.jpa.util.BaseJpaRepository;
 import uo.ri.cws.infrastructure.persistence.jpa.util.Jpa;
 
 public class MechanicJpaRepository extends BaseJpaRepository<Mechanic>
-implements MechanicRepository {
+	implements MechanicRepository {
 
     @Override
     public Optional<Mechanic> findByDni(String dni) {
@@ -34,21 +34,40 @@ implements MechanicRepository {
 
     }
 
+    /**
+     * Calculate enrolled hours by type
+     */
     @Override
-    public Long calcHoursCAssitType(String id, String idType) {
+    public Long EnrolledHoursByType(String idMechanic, String idType) {
 	return Jpa.getManager()
-		.createNamedQuery("Mechanic.calculateHoursCourseAssitType",
+		.createNamedQuery("Mechanic.CalculateEnrolledHoursByType",
 			Long.class)
-		.setParameter(1, id).setParameter(2, idType).getSingleResult();
+		.setParameter(1, idMechanic).setParameter(2, idType)
+		.getSingleResult();
     }
 
+    /**
+     * Calculate assisted hours by type
+     */
     @Override
-    public Long calcHoursCAssitTypePassed(String idMecanico, String idType) {
+    public Long AssistedHoursByType(String idMechanic, String idType) {
+	return Jpa.getManager()
+		.createNamedQuery("Mechanic.CalculateAssistedHoursByType",
+			Long.class)
+		.setParameter(1, idMechanic).setParameter(2, idType)
+		.getSingleResult();
+    }
+
+    /**
+     * Calculate assisted hours by type and passed
+     */
+    @Override
+    public Long calcHoursCAssitTypePassed(String idMechanic, String idType) {
 	return Jpa.getManager()
 		.createNamedQuery(
-			"Mechanic.calculateHoursCourseAssitTypePassed",
+			"Mechanic.CalculateAssistedHoursByTypeAndPassed",
 			Long.class)
-		.setParameter(1, idMecanico).setParameter(2, idType)
+		.setParameter(1, idMechanic).setParameter(2, idType)
 		.setParameter(3, true).getSingleResult();
     }
 
