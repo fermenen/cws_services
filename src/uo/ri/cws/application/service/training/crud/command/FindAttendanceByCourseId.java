@@ -12,6 +12,10 @@ import uo.ri.cws.application.util.DtoAssembler;
 import uo.ri.cws.application.util.command.Command;
 import uo.ri.cws.domain.Enrollment;
 
+/**
+ * @version 2.0
+ *
+ */
 public class FindAttendanceByCourseId implements Command<List<EnrollmentDto>> {
 
     private String courseId;
@@ -27,8 +31,8 @@ public class FindAttendanceByCourseId implements Command<List<EnrollmentDto>> {
 	BusinessCheck.isTrue(this.courseId != null);
 	checkCourse(this.courseId);
 	List<Enrollment> enroll = repo.findByIdCourse(courseId);
-	BusinessCheck.isFalse(enroll.isEmpty(),
-		"There is no assistance for this course");
+//After January correction, do not throw exception in this case
+//	BusinessCheck.isFalse(enroll.isEmpty(), "There is no assistance for this course");
 	return DtoAssembler.toEnrollmentDtoList(enroll);
     }
 
