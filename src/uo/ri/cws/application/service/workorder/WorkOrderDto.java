@@ -1,4 +1,4 @@
-package uo.ri.cws.application.service.workorder.dto;
+package uo.ri.cws.application.service.workorder;
 
 import java.util.Date;
 

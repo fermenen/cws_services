@@ -3,7 +3,7 @@ package uo.ri.cws.application.service.invoice;
 import java.util.List;
 
 import uo.ri.cws.application.service.BusinessException;
-import uo.ri.cws.application.service.workorder.dto.WorkOrderDto;
+import uo.ri.cws.application.service.workorder.WorkOrderDto;
 
 /**
  * This service is intended to be used by the Cashier It follows the ISP

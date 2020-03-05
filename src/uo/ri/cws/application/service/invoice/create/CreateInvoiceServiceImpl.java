@@ -7,7 +7,7 @@ import uo.ri.cws.application.service.BusinessException;
 import uo.ri.cws.application.service.invoice.CreateInvoiceService;
 import uo.ri.cws.application.service.invoice.InvoiceDto;
 import uo.ri.cws.application.service.invoice.create.command.CreateInvoiceFor;
-import uo.ri.cws.application.service.workorder.dto.WorkOrderDto;
+import uo.ri.cws.application.service.workorder.WorkOrderDto;
 import uo.ri.cws.application.util.command.CommandExecutor;
 
 public class CreateInvoiceServiceImpl implements CreateInvoiceService {
