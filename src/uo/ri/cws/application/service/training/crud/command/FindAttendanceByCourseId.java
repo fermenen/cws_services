@@ -6,7 +6,7 @@ import uo.ri.conf.Factory;
 import uo.ri.cws.application.repository.AttendanceRepository;
 import uo.ri.cws.application.repository.CourseRepository;
 import uo.ri.cws.application.service.BusinessException;
-import uo.ri.cws.application.service.training.dto.EnrollmentDto;
+import uo.ri.cws.application.service.training.EnrollmentDto;
 import uo.ri.cws.application.util.BusinessCheck;
 import uo.ri.cws.application.util.DtoAssembler;
 import uo.ri.cws.application.util.command.Command;

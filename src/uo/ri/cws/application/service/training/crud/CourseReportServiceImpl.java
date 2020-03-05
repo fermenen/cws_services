@@ -4,13 +4,13 @@ import java.util.List;
 
 import uo.ri.conf.Factory;
 import uo.ri.cws.application.service.BusinessException;
+import uo.ri.cws.application.service.training.CertificateDto;
 import uo.ri.cws.application.service.training.CourseReportService;
 import uo.ri.cws.application.service.training.TrainingForMechanicRow;
 import uo.ri.cws.application.service.training.TrainingHoursRow;
 import uo.ri.cws.application.service.training.crud.command.ReportCertificatedByVehicleType;
 import uo.ri.cws.application.service.training.crud.command.ReportTrainigByMechanicId;
 import uo.ri.cws.application.service.training.crud.command.ReportTrainingByVehicleTypeAndMechanic;
-import uo.ri.cws.application.service.training.dto.CertificateDto;
 import uo.ri.cws.application.util.command.CommandExecutor;
 
 public class CourseReportServiceImpl implements CourseReportService {

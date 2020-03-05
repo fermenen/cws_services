@@ -1,4 +1,4 @@
-package uo.ri.cws.application.service.training.dto;
+package uo.ri.cws.application.service.training;
 
 import uo.ri.cws.application.service.mechanic.MechanicDto;
 

@@ -3,7 +3,7 @@ package uo.ri.cws.application.service.workorder;
 import java.util.List;
 
 import uo.ri.cws.application.service.BusinessException;
-import uo.ri.cws.application.service.training.dto.CertificateDto;
+import uo.ri.cws.application.service.training.CertificateDto;
 
 public interface AssignWorkOrderService {
 

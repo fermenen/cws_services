@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Optional;
 
 import uo.ri.cws.application.service.BusinessException;
-import uo.ri.cws.application.service.training.dto.CourseDto;
 import uo.ri.cws.application.service.vehicletype.VehicleTypeDto;
 
 /**
