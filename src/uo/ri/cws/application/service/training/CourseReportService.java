@@ -4,8 +4,6 @@ import java.util.List;
 
 import uo.ri.cws.application.service.BusinessException;
 import uo.ri.cws.application.service.training.dto.CertificateDto;
-import uo.ri.cws.application.service.training.dto.TrainingForMechanicRow;
-import uo.ri.cws.application.service.training.dto.TrainingHoursRow;
 
 /**
  * This service is intended to be used by the Manager It follows the ISP
