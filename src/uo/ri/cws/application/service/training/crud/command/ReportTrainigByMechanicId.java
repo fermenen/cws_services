@@ -37,7 +37,7 @@ public class ReportTrainigByMechanicId
     @Override
     public List<TrainingForMechanicRow> execute() throws BusinessException {
 	Mechanic mechanic = checkMechanic(this.mechanicId);
-	return calculoHorasByTipo(mechanic);
+	return calculationHoursByType(mechanic);
     }
 
     /**
@@ -60,7 +60,8 @@ public class ReportTrainigByMechanicId
      * @param mechanic
      * @return List of TrainingForMechanicRow
      */
-    private List<TrainingForMechanicRow> calculoHorasByTipo(Mechanic mechanic) {
+    private List<TrainingForMechanicRow> calculationHoursByType(
+	    Mechanic mechanic) {
 	List<TrainingForMechanicRow> listTraining = new ArrayList<TrainingForMechanicRow>();
 	for (VehicleType typeVehicle : repoTV.findAll()) {
 	    TrainingForMechanicRow training = new TrainingForMechanicRow();

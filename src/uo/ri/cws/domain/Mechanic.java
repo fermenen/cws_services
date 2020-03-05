@@ -64,6 +64,10 @@ public class Mechanic extends BaseEntity {
     public Set<WorkOrder> getAssigned() {
 	return new HashSet<>(workOrders);
     }
+    
+    public String getFullName() {
+	return getSurname()+", "+getName();
+    }
 
     Set<WorkOrder> _getWorkOrders() {
 	return workOrders;
