@@ -28,4 +28,14 @@ public class WorkOrderJpaRepository extends BaseJpaRepository<WorkOrder>
 		.setParameter(1, workOrderStatus).getResultList();
     }
 
+    /**
+     * Calculate list work orders by status
+     */
+    @Override
+    public List<WorkOrder> findByVehicle(String vehicleId) {
+	return Jpa.getManager()
+		.createNamedQuery("WorkOrder.findByVehicle", WorkOrder.class)
+		.setParameter(1, vehicleId).getResultList();
+    }
+
 }

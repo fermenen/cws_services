@@ -26,6 +26,15 @@
 		where w.status in ?1
 		</query>
 	</named-query>
+	
+	<named-query name="WorkOrder.findByVehicle">
+	<query>
+	select w
+	from WorkOrder w
+	join w.vehicle v
+	where v.id = ?1
+	</query>
+	</named-query>
 
 
 	<!-- PaymentMean queries -->

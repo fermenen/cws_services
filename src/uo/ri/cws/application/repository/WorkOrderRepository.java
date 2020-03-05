@@ -20,4 +20,11 @@ public interface WorkOrderRepository extends Repository<WorkOrder> {
      * 
      */
     List<WorkOrder> findByStatus(List<WorkOrderStatus> workOrderStatus);
+    
+    /**
+     * @param vehicleId
+     * @return List of work orders by vehicle
+     * 
+     */
+    List<WorkOrder> findByVehicle(String vehicleId);
 }
