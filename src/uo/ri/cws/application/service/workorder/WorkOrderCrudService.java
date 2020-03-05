@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import uo.ri.cws.application.service.BusinessException;
+import uo.ri.cws.application.service.workorder.dto.WorkOrderDto;
 
 /**
  * This service is intended to be used by the Foreman It follows the ISP

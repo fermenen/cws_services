@@ -2,7 +2,7 @@ package uo.ri.cws.application.util;
 
 import uo.ri.cws.application.service.mechanic.MechanicDto;
 import uo.ri.cws.application.service.training.dto.EnrollmentDto;
-import uo.ri.cws.application.service.workorder.WorkOrderDto;
+import uo.ri.cws.application.service.workorder.dto.WorkOrderDto;
 import uo.ri.cws.domain.*;
 
 public class EntityAssembler {

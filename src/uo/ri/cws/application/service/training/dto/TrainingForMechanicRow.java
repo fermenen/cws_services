@@ -1,4 +1,4 @@
-package uo.ri.cws.application.service.training;
+package uo.ri.cws.application.service.training.dto;
 
 public class TrainingForMechanicRow {
 

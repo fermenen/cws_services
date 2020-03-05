@@ -15,7 +15,7 @@ import uo.ri.cws.application.service.training.dto.CourseDto;
 import uo.ri.cws.application.service.training.dto.EnrollmentDto;
 import uo.ri.cws.application.service.vehicle.VehicleDto;
 import uo.ri.cws.application.service.vehicletype.VehicleTypeDto;
-import uo.ri.cws.application.service.workorder.WorkOrderDto;
+import uo.ri.cws.application.service.workorder.dto.WorkOrderDto;
 import uo.ri.cws.domain.*;
 
 public class DtoAssembler {
