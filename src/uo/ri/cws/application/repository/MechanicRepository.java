@@ -19,38 +19,38 @@ public interface MechanicRepository extends Repository<Mechanic> {
     List<Mechanic> findAll();
 
     /**
-     * @param id
-     * @return horas totales cursos
+     * @param idMechanic
+     * @return Enrolled hours by mechanic
      */
-    Long calcHoursCEnroll(String id);
+    Long enrolledHoursByMechanic(String idMechanic);
 
     /**
-     * @param id
-     * @return horas totales asistidas
+     * @param idMechanic
+     * @return Assisted hours by mechanic
      */
-    Long calcHoursCAssit(String id);
+    Long assistedHoursByMechanic(String idMechanic);
 
     
     /**
-     * @param idMecanico
-     * @param idType
+     * @param idMechanic
+     * @param idVehicleType
      * @return Enrolled hours for vehicle type
      */
-    Long EnrolledHoursByType(String idMechanic, String idType);
+    Long enrolledHoursByType(String idMechanic, String idVehicleType);
     
     
     /**
-     * @param idMecanico
-     * @param idType
-     * @return Assisted hours for vehicle type
+     * @param idMechanic
+     * @param idVehicleType
+     * @return Assisted hours for vehicle type and mechanic
      */
-    Long AssistedHoursByType(String idMechanic, String idType);
+    Long assistedHoursByType(String idMechanic, String idVehicleType);
 
     /**
-     * @param idMecanico
-     * @param idType
-     * @return Assisted hours for vehicle type and passed
+     * @param idMechanic
+     * @param idVehicleType
+     * @return Assisted hours for vehicle type, mechanic and passed
      */
-    Long calcHoursCAssitTypePassed(String idMechanic, String idType);
+    Long assistedHoursByTypeAndPassed(String idMechanic, String idVehicleType);
 
 }

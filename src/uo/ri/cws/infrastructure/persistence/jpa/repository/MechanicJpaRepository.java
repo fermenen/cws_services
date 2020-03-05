@@ -16,8 +16,11 @@ public class MechanicJpaRepository extends BaseJpaRepository<Mechanic>
 		.setParameter(1, dni).getResultList().stream().findFirst();
     }
 
+    /**
+     * Calculate enrolled hours by mechanic
+     */
     @Override
-    public Long calcHoursCEnroll(String id) {
+    public Long enrolledHoursByMechanic(String id) {
 	return Jpa.getManager()
 		.createNamedQuery("Mechanic.calculateHoursCourseEnroll",
 			Long.class)
@@ -25,8 +28,11 @@ public class MechanicJpaRepository extends BaseJpaRepository<Mechanic>
 
     }
 
+    /**
+     * Calculate assisted hours by mechanic
+     */
     @Override
-    public Long calcHoursCAssit(String id) {
+    public Long assistedHoursByMechanic(String id) {
 	return Jpa.getManager()
 		.createNamedQuery("Mechanic.calculateHoursCourseAssit",
 			Long.class)
@@ -38,7 +44,7 @@ public class MechanicJpaRepository extends BaseJpaRepository<Mechanic>
      * Calculate enrolled hours by type
      */
     @Override
-    public Long EnrolledHoursByType(String idMechanic, String idType) {
+    public Long enrolledHoursByType(String idMechanic, String idType) {
 	return Jpa.getManager()
 		.createNamedQuery("Mechanic.CalculateEnrolledHoursByType",
 			Long.class)
@@ -50,7 +56,7 @@ public class MechanicJpaRepository extends BaseJpaRepository<Mechanic>
      * Calculate assisted hours by type
      */
     @Override
-    public Long AssistedHoursByType(String idMechanic, String idType) {
+    public Long assistedHoursByType(String idMechanic, String idType) {
 	return Jpa.getManager()
 		.createNamedQuery("Mechanic.CalculateAssistedHoursByType",
 			Long.class)
@@ -62,7 +68,7 @@ public class MechanicJpaRepository extends BaseJpaRepository<Mechanic>
      * Calculate assisted hours by type and passed
      */
     @Override
-    public Long calcHoursCAssitTypePassed(String idMechanic, String idType) {
+    public Long assistedHoursByTypeAndPassed(String idMechanic, String idType) {
 	return Jpa.getManager()
 		.createNamedQuery(
 			"Mechanic.CalculateAssistedHoursByTypeAndPassed",

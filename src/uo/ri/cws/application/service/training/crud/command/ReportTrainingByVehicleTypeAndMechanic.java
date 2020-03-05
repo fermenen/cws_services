@@ -27,14 +27,19 @@ public class ReportTrainingByVehicleTypeAndMechanic
     @Override
     public List<TrainingHoursRow> execute() throws BusinessException {
 
-	return aunNoseNombre();
+	return calculationHoursByTypeAndMechanic();
     }
 
-    public List<TrainingHoursRow> aunNoseNombre() {
+    /**
+     * Hours attended by type vehicle by each mechanic
+     * 
+     * @return List of TrainingForMechanicRow
+     */
+    public List<TrainingHoursRow> calculationHoursByTypeAndMechanic() {
 	List<TrainingHoursRow> listTraining = new ArrayList<TrainingHoursRow>();
 	for (VehicleType typeVehicle : repoTypeVehicle.findAll()) {
 	    for (Mechanic mechanic : repoMechanic.findAll()) {
-		Object attendedHours = repoMechanic.AssistedHoursByType(
+		Object attendedHours = repoMechanic.assistedHoursByType(
 			mechanic.getId(), typeVehicle.getId());
 		int hoursAttended = ((attendedHours == null) ? 0
 			: ((Long) attendedHours).intValue());
@@ -45,7 +50,6 @@ public class ReportTrainingByVehicleTypeAndMechanic
 		    training.enrolledHours = hoursAttended;
 		    listTraining.add(training);
 		}
-
 	    }
 	}
 	return listTraining;

@@ -44,7 +44,7 @@ public class ReportTrainigByMechanicId
      * Check if the mechanic exists in the system
      * 
      * @param mechanicId
-     * @return
+     * @return Mechanic
      * @throws BusinessException
      */
     private Mechanic checkMechanic(String mechanicId) throws BusinessException {
@@ -67,11 +67,11 @@ public class ReportTrainigByMechanicId
 	    TrainingForMechanicRow training = new TrainingForMechanicRow();
 	    training.vehicleTypeName = typeVehicle.getName();
 	    Object enrolledHours = repoMechanic
-		    .EnrolledHoursByType(mechanic.getId(), typeVehicle.getId());
+		    .enrolledHoursByType(mechanic.getId(), typeVehicle.getId());
 	    training.enrolledHours = ((enrolledHours == null) ? 0
 		    : ((Long) enrolledHours).intValue());
 	    Object attendedHours = repoMechanic
-		    .AssistedHoursByType(mechanic.getId(), typeVehicle.getId());
+		    .assistedHoursByType(mechanic.getId(), typeVehicle.getId());
 	    training.attendedHours = ((attendedHours == null) ? 0
 		    : ((Long) attendedHours).intValue());
 	    listTraining.add(training);

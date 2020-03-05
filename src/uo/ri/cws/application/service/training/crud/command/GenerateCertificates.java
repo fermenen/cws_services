@@ -14,34 +14,42 @@ import uo.ri.cws.domain.Certificate;
 import uo.ri.cws.domain.Mechanic;
 import uo.ri.cws.domain.VehicleType;
 
+/**
+ * Certificate generation
+ *
+ */
 public class GenerateCertificates implements Command<Integer> {
 
-    private CertificateRepository repoC = Factory.repository.forCertificate();
-    private MechanicRepository repoM = Factory.repository.forMechanic();
-    private VehicleTypeRepository repoVt = Factory.repository.forVehicleType();
+    private CertificateRepository repoCertificates = Factory.repository
+	    .forCertificate();
+    private MechanicRepository repoMechanic = Factory.repository.forMechanic();
+    private VehicleTypeRepository repoVehiclesType = Factory.repository
+	    .forVehicleType();
 
     @Override
     public Integer execute() throws BusinessException {
-	return calculate().size();
+	List<Certificate> listCertificates = calculateCertificates();
+	return listCertificates.size();
     }
 
     /**
      * Calculate all certificates
      * 
-     * @return list certificates
+     * @return list of certificates
      */
-    private List<Certificate> calculate() {
+    private List<Certificate> calculateCertificates() {
 	List<Certificate> listCertificates = new ArrayList<Certificate>();
-	for (Mechanic m : repoM.findAll()) {
-	    for (VehicleType typeVehicle : repoVt.findAll()) {
+	for (Mechanic mechanic : repoMechanic.findAll()) {
+	    for (VehicleType typeVehicle : repoVehiclesType.findAll()) {
 		Optional<Long> hours = Optional
-			.ofNullable(repoM.calcHoursCAssitTypePassed(m.getId(),
-				typeVehicle.getId()));
+			.ofNullable(repoMechanic.assistedHoursByTypeAndPassed(
+				mechanic.getId(), typeVehicle.getId()));
 		if (hours.isPresent()
 			&& hours.get() >= typeVehicle.getMinTrainingHours()
-			&& !checkCertificateExist(m, typeVehicle)) {
-		    Certificate certificado = new Certificate(m, typeVehicle);
-		    repoC.add(certificado);
+			&& !checkCertificateExist(mechanic, typeVehicle)) {
+		    Certificate certificado = new Certificate(mechanic,
+			    typeVehicle);
+		    repoCertificates.add(certificado);
 		    listCertificates.add(certificado);
 		}
 	    }
@@ -50,14 +58,16 @@ public class GenerateCertificates implements Command<Integer> {
     }
 
     /**
-     * Compruebo si el certificado ya existe en el sistema
+     * Check if the certificate already exists in the system
      * 
+     * @param mechanic
      * @param cNew
      * @return
      */
-    private boolean checkCertificateExist(Mechanic m, VehicleType typeV) {
-	for (Certificate cBd : repoC.findAll())
-	    if (cBd.getMechanic().equals(m)
+    private boolean checkCertificateExist(Mechanic mechanic,
+	    VehicleType typeV) {
+	for (Certificate cBd : repoCertificates.findAll())
+	    if (cBd.getMechanic().equals(mechanic)
 		    && cBd.getVehicletype().equals(typeV))
 		return true;
 	return false;
