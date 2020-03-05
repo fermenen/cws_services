@@ -19,9 +19,11 @@ import uo.ri.cws.application.service.training.crud.CourseReportServiceImpl;
 import uo.ri.cws.application.service.vehicle.VehicleCrudService;
 import uo.ri.cws.application.service.vehicle.crud.VehicleCrudServiceImpl;
 import uo.ri.cws.application.service.vehicletype.VehicleTypeCrudService;
+import uo.ri.cws.application.service.workorder.AssignWorkOrderService;
 import uo.ri.cws.application.service.workorder.CloseWorkOrderService;
 import uo.ri.cws.application.service.workorder.ViewAssignedWorkOrdersService;
 import uo.ri.cws.application.service.workorder.WorkOrderCrudService;
+import uo.ri.cws.application.service.workorder.crud.AssignWorkOrderServiceImpl;
 import uo.ri.cws.application.service.workorder.crud.WorkOrderCrudServiceImpl;
 
 public class BusinessFactory implements ServiceFactory {
@@ -62,17 +64,7 @@ public class BusinessFactory implements ServiceFactory {
     }
 
     @Override
-    public ClientCrudService forClienteCrudService() {
-	throw new RuntimeException("Not yet implemented");
-    }
-
-    @Override
     public ClientHistoryService forClientHistoryService() {
-	throw new RuntimeException("Not yet implemented");
-    }
-
-    @Override
-    public WorkOrderCrudService forWorkOrderCrudService() {
 	throw new RuntimeException("Not yet implemented");
     }
 
@@ -111,6 +103,11 @@ public class BusinessFactory implements ServiceFactory {
     @Override
     public ClientCrudService forClientCrudService() {
 	throw new RuntimeException("Not yet implemented");
+    }
+
+    @Override
+    public AssignWorkOrderService forAssignWorkOrderService() {
+	return new AssignWorkOrderServiceImpl();
     }
 
 }

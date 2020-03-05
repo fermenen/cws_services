@@ -12,8 +12,21 @@
 
 	<!-- WorkOrder queries -->
 	<named-query name="WorkOrder.findByIds">
-		<query>select a from WorkOrder a where a.id in ?1</query>
+		<query>
+		select a 
+		from WorkOrder a 
+		where a.id in ?1
+		</query>
 	</named-query>
+
+	<named-query name="WorkOrder.findByStatus">
+		<query>
+		select w
+		from WorkOrder w
+		where w.status in ?1
+		</query>
+	</named-query>
+
 
 	<!-- PaymentMean queries -->
 	<named-query name="PaymentMean.findByInvoiceId">
@@ -127,8 +140,9 @@
 		and d.vehicleType.id = ?2
 		</query>
 	</named-query>
-	
-	<named-query name="Mechanic.CalculateAssistedHoursByTypeAndPassed">
+
+	<named-query
+		name="Mechanic.CalculateAssistedHoursByTypeAndPassed">
 		<query>
 		select SUM((((c.hours*d.percentage)/100)*e.attendance)/100)
 		from Mechanic m
@@ -143,9 +157,9 @@
 
 
 
-	<!-- Use this format if your query has numeric comparisons as the one in this example 
-		<named-query name="findItemsOnSaleByCategoryId"> <query> <![CDATA[ select i from 
-		Item i join i.categories c where c.id = ?2 and i.startDate <= ?1 and i.endDate >= 
-		?1 ]]> </query> </named-query> -->
+	<!-- Use this format if your query has numeric comparisons as the one in 
+		this example <named-query name="findItemsOnSaleByCategoryId"> <query> <![CDATA[ 
+		select i from Item i join i.categories c where c.id = ?2 and i.startDate 
+		<= ?1 and i.endDate >= ?1 ]]> </query> </named-query> -->
 
 </entity-mappings>

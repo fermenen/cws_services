@@ -40,15 +40,13 @@ public class WorkOrderCrudServiceImpl implements WorkOrderCrudService {
     @Override
     public List<WorkOrderDto> findWorkOrdersByVehicleId(String id)
 	    throws BusinessException {
-	//Auto-generated method stub
-	return null;
+	throw new RuntimeException("Not yet implemented");
     }
 
     @Override
     public List<WorkOrderDto> findWorkOrdersByPlateNumber(String plate)
 	    throws BusinessException {
-	//Auto-generated method stub
-	return null;
+	throw new RuntimeException("Not yet implemented");
     }
 
 }

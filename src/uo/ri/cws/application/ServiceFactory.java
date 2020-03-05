@@ -12,6 +12,7 @@ import uo.ri.cws.application.service.training.CourseCrudService;
 import uo.ri.cws.application.service.training.CourseReportService;
 import uo.ri.cws.application.service.vehicle.VehicleCrudService;
 import uo.ri.cws.application.service.vehicletype.VehicleTypeCrudService;
+import uo.ri.cws.application.service.workorder.AssignWorkOrderService;
 import uo.ri.cws.application.service.workorder.CloseWorkOrderService;
 import uo.ri.cws.application.service.workorder.ViewAssignedWorkOrdersService;
 import uo.ri.cws.application.service.workorder.WorkOrderCrudService;
@@ -41,7 +42,8 @@ public interface ServiceFactory {
     // Foreman use cases
     WorkOrderCrudService forWorkOrderService();
 
-    // AssignWorkOrderService forAssignWorkOrderService();
+    AssignWorkOrderService forAssignWorkOrderService();
+
     VehicleCrudService forVehicleCrudService();
 
     ClientCrudService forClientCrudService();

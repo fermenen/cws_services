@@ -19,7 +19,7 @@ import uo.ri.cws.domain.WorkOrder;
 public class RegisterNewWorkOder implements Command<WorkOrderDto> {
 
     private WorkOrderDto wDto;
-    private WorkOrderRepository repo = Factory.repository.forWorkOrder();
+    private WorkOrderRepository repoWorkOrder = Factory.repository.forWorkOrder();
     private VehicleRepository repoV = Factory.repository.forVehicle();
 
     public RegisterNewWorkOder(WorkOrderDto wDto) {
@@ -32,7 +32,7 @@ public class RegisterNewWorkOder implements Command<WorkOrderDto> {
 	Vehicle v = checkVehicle(this.wDto.vehicleId);
 	checkDescriptcion(this.wDto);
 	WorkOrder workOrder = EntityAssembler.toEntity(v, wDto);
-	repo.add(workOrder);
+	repoWorkOrder.add(workOrder);
 	this.wDto.id = workOrder.getId();
 	return wDto;
     }
