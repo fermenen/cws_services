@@ -7,6 +7,7 @@ import uo.ri.cws.application.service.BusinessException;
 import uo.ri.cws.application.service.training.CertificateDto;
 import uo.ri.cws.application.service.workorder.AssignWorkOrderService;
 import uo.ri.cws.application.service.workorder.WorkOrderDto;
+import uo.ri.cws.application.service.workorder.crud.command.FindCertificatesByVehicleTypeId;
 import uo.ri.cws.application.service.workorder.crud.command.FindUnfinishedWorkOrders;
 import uo.ri.cws.application.util.command.CommandExecutor;
 
@@ -22,9 +23,10 @@ public class AssignWorkOrderServiceImpl implements AssignWorkOrderService {
     }
 
     @Override
-    public List<CertificateDto> findCertificatesByVehicleTypeId(String id)
-	    throws BusinessException {
-	throw new RuntimeException("Not yet implemented");
+    public List<CertificateDto> findCertificatesByVehicleTypeId(
+	    String vehicleTypeId) throws BusinessException {
+	return executor
+		.execute(new FindCertificatesByVehicleTypeId(vehicleTypeId));
     }
 
     @Override

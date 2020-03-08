@@ -20,7 +20,7 @@ import uo.ri.cws.domain.WorkOrder;
  * @version 2.0
  *
  */
-public class findWorkOrdersByPlateNumber
+public class FindWorkOrdersByPlateNumber
 	implements Command<List<WorkOrderDto>> {
 
     private String plateId;
@@ -28,7 +28,7 @@ public class findWorkOrdersByPlateNumber
     private WorkOrderRepository repoWorkOrder = Factory.repository
 	    .forWorkOrder();
 
-    public findWorkOrdersByPlateNumber(String plateId) {
+    public FindWorkOrdersByPlateNumber(String plateId) {
 	this.plateId = plateId;
     }
 

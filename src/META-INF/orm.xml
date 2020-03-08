@@ -164,7 +164,18 @@
 		</query>
 	</named-query>
 
-
+	<!-- CERTIFICATES -->
+	
+		<named-query
+		name="Certificate.findByVehicleType">
+		<query>
+		select c
+		from Certificate c
+		join c.vehicletype v
+		where
+		v.id = ?1
+		</query>
+	</named-query>
 
 	<!-- Use this format if your query has numeric comparisons as the one in 
 		this example <named-query name="findItemsOnSaleByCategoryId"> <query> <![CDATA[ 

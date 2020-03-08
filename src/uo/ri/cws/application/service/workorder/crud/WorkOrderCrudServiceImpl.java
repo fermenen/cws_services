@@ -45,7 +45,7 @@ public class WorkOrderCrudServiceImpl implements WorkOrderCrudService {
     @Override
     public List<WorkOrderDto> findWorkOrdersByPlateNumber(String plate)
 	    throws BusinessException {
-	return executor.execute(new findWorkOrdersByPlateNumber(plate));
+	return executor.execute(new FindWorkOrdersByPlateNumber(plate));
     }
 
 }

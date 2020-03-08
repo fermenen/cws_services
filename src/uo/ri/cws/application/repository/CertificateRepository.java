@@ -10,4 +10,8 @@ public interface CertificateRepository extends Repository<Certificate> {
      */
     List<Certificate> findAll();
 
+    /**
+     * @return a list of certificates for the vehicle type
+     */
+    List<Certificate> findByVehicleType(String typeId);
 }
