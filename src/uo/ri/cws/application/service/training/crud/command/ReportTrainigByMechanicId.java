@@ -60,8 +60,10 @@ public class ReportTrainigByMechanicId
      * @param mechanic
      * @return List of TrainingForMechanicRow
      */
+    private boolean not_zero = false;
+
     private List<TrainingForMechanicRow> calculationHoursByType(
-	    Mechanic mechanic) {
+	    Mechanic mechanic) throws BusinessException {
 	List<TrainingForMechanicRow> listTraining = new ArrayList<TrainingForMechanicRow>();
 	for (VehicleType typeVehicle : repoTV.findAll()) {
 	    TrainingForMechanicRow training = new TrainingForMechanicRow();
@@ -69,14 +71,20 @@ public class ReportTrainigByMechanicId
 	    Object enrolledHours = repoMechanic
 		    .enrolledHoursByType(mechanic.getId(), typeVehicle.getId());
 	    training.enrolledHours = ((enrolledHours == null) ? 0
-		    : ((Long) enrolledHours).intValue());
+		    : return_hours(enrolledHours));
 	    Object attendedHours = repoMechanic
 		    .assistedHoursByType(mechanic.getId(), typeVehicle.getId());
 	    training.attendedHours = ((attendedHours == null) ? 0
-		    : ((Long) attendedHours).intValue());
+		    : return_hours(attendedHours));
 	    listTraining.add(training);
 	}
+	BusinessCheck.isTrue(not_zero, "The mechanic has not assistence");
 	return listTraining;
+    }
+
+    private int return_hours(Object hours) {
+	not_zero = true;
+	return ((Long) hours).intValue();
     }
 
 }
