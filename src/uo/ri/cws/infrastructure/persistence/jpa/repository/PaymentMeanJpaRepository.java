@@ -11,7 +11,7 @@ public class PaymentMeanJpaRepository extends BaseJpaRepository<PaymentMean>
 
     @Override
     public List<PaymentMean> findPaymentMeansByClientId(Long id) {
-	// TODO Auto-generated method stub
+	// Auto-generated method stub
 	return null;
     }
 
