@@ -128,7 +128,7 @@
 
 	<named-query name="Mechanic.CalculateEnrolledHoursByType">
 		<query>
-		select SUM(c.hours)
+		select SUM((c.hours*d.percentage)/100)
 		from Mechanic m
 		join m.enrollments e
 		join e.course c

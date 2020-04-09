@@ -19,7 +19,7 @@ import uo.ri.cws.domain.VehicleType;
  * show the total hours of courses in which he was enrolled, the total hours
  * attended and a break down of those attended by each type of vehicle.
  * 
- * @version 2.0
+ * @version 3.0
  *
  */
 public class ReportTrainigByMechanicId
@@ -60,7 +60,6 @@ public class ReportTrainigByMechanicId
      * @param mechanic
      * @return List of TrainingForMechanicRow
      */
-    private boolean not_zero = false;
 
     private List<TrainingForMechanicRow> calculationHoursByType(
 	    Mechanic mechanic) throws BusinessException {
@@ -70,21 +69,16 @@ public class ReportTrainigByMechanicId
 	    training.vehicleTypeName = typeVehicle.getName();
 	    Object enrolledHours = repoMechanic
 		    .enrolledHoursByType(mechanic.getId(), typeVehicle.getId());
-	    training.enrolledHours = ((enrolledHours == null) ? 0
-		    : return_hours(enrolledHours));
-	    Object attendedHours = repoMechanic
-		    .assistedHoursByType(mechanic.getId(), typeVehicle.getId());
-	    training.attendedHours = ((attendedHours == null) ? 0
-		    : return_hours(attendedHours));
-	    listTraining.add(training);
+	    if (enrolledHours != null) {
+		training.enrolledHours = ((Long) enrolledHours).intValue();
+		Object attendedHours = repoMechanic.assistedHoursByType(
+			mechanic.getId(), typeVehicle.getId());
+		training.attendedHours = ((attendedHours == null) ? 0
+			: ((Long) attendedHours).intValue());
+		listTraining.add(training);
+	    }
 	}
-	BusinessCheck.isTrue(not_zero, "The mechanic has not assistence");
 	return listTraining;
-    }
-
-    private int return_hours(Object hours) {
-	not_zero = true;
-	return ((Long) hours).intValue();
     }
 
 }
